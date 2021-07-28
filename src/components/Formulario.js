@@ -1,4 +1,5 @@
 import React, {Fragment, useState} from 'react';
+import shortid from 'shortid';
 
 const Formulario = () => {
 
@@ -33,11 +34,13 @@ const Formulario = () => {
         fecha.trim() === '' || hora.trim() === '' || sintomas.trim() === ''){
             actualizarError(true);
             return;
-        } else {
-            actualizarError(false);
         }
+        // Eliminar el mensaje previo
+        actualizarError(false);
 
         // Asignar un ID
+        cita.id=shortid();
+        console.log(cita);
 
         // Crear la cita
 
